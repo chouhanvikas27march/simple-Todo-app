@@ -1,0 +1,8 @@
+.banner{
+    background-color: #2d76e3;
+    color: #fff;
+}
+.form-control{
+    border: 1px solid #2d76e3 !important;
+    border-radius: 0px !important;
+}

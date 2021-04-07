@@ -1,0 +1,45 @@
+{% extends 'tasks/index.html' %}
+{% block title %} alltask {% endblock title%}
+{% block bannertitle %} View All Tasks {% endblock bannertitle %}
+{% block name %}{% endblock name %}
+<form action="" method="get">
+    <input type="text" name="keyword" id="">
+    <button type="submit" class="btn-primary ">search</button>
+</form>
+
+
+
+
+
+{% block content %} 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Task</th>
+        <th>Start_Date</th>
+        <th>Deadline</th>
+        <th>Description</th>
+        <th>Status</th>  
+        <th>Action</th>        
+    </tr>
+    {% for d in data %}
+    <tr> 
+        <td>{{d.id}}</td>
+        <td>{{d.Project}}</td>
+        <td>{{d.Task}}</td>
+        <td>{{d.Start_Date}}</td>
+        <td>{{d.Deadline}}</td>
+        <td>{{d.Description}}</td>
+        <td>{{d.Status}}</td>
+        <td> <a href="{% url 'updatetask' d.id  %}" class= "btn btn-success btn-sm">Edit</a> 
+        <form action="{% url 'deletetask' d.id %}" method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class= "btn btn-danger btn-sm">
+        </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

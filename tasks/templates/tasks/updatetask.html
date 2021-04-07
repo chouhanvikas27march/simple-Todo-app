@@ -1,0 +1,14 @@
+{% extends 'tasks/index.html' %}
+{% block title %}update {% endblock title%}
+{% block bannertitle %} UPDATE TASK {% endblock bannertitle %}
+
+{% block content %} 
+<div class="col-md-6">
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {{form.as_p}}       
+      <input type="submit" value="Submit" class="btn btn-success text-center">
+      <a href="{% url 'AllTaskview' %}" class="btn btn-promary">view all task</a>
+    </form>                   
+</div>
+{% endblock content %}
